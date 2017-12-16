@@ -42,3 +42,10 @@ class Config(object):
                 except UnicodeDecodeError as err:
                     sys.exit(1)
                     break
+
+
+class Configlog(object):
+
+    LOGGING_FILE = {
+        "version": 1
+    }
