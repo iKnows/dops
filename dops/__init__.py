@@ -7,3 +7,7 @@
 @file: dops/__init__.py 
 @time: 2017/12/16 21:52
 """
+
+
+def main():
+    pass
