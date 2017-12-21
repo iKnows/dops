@@ -11,7 +11,7 @@
 import platform
 import sys
 
-from dops.core.logging import logger
+#from dops.core.logging import logger
 
 __version__ = '1.0'
 __author__ = 'ysicing <ops.ysicing@gmail.com>'
@@ -27,10 +27,10 @@ except ImportError:
 
 def main():
 
-    logger.info('Start Dops {}'.format(__version__))
-    logger.info('{} {} and PSutil {} detected'.format(
-        platform.python_implementation(),
-        platform.python_version(),
-        psutil_version))
+    #logger.info('Start Dops {}'.format(__version__))
+    #logger.info('{} {} and PSutil {} detected'.format(
+    #    platform.python_implementation(),
+    #    platform.python_version(),
+    #    psutil_version))
 
     print('hello')
