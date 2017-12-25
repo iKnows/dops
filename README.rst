@@ -13,7 +13,7 @@ Requirements
 ============
 
 - ``python >=3.6``
-- ``psutil>=2.0.0`` (better with latest version)
+- ``psutil>=5.4.2`` (better with latest version)
 
 Optional dependencies:
 
@@ -23,7 +23,9 @@ Installation
 
 Several method to test/install Dops on your system. Choose your weapon !
 
-
+```
+pip3 install dops
+```
 
 License
 =======
