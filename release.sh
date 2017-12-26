@@ -42,8 +42,14 @@ function pypi() {
 
 
 case $1 in
-    *)
+    version)
+        version
+      ;;
+    pypi)
+         pypi
+      ;;
+     *)
         version
         pypi
-      ;;
+     ;;
 esac
