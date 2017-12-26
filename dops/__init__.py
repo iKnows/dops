@@ -13,6 +13,7 @@ import sys
 import argparse
 import platform
 from dops.core.logger import logger
+from dops.subcmd import VersionCommand
 
 __version__ = '0.0.1.2'
 __author__ = 'ysicing <ops.ysicing@gmail.com>'
@@ -49,7 +50,7 @@ def main():
     ))
     parser = argparse.ArgumentParser()
     subparsers = parser.add_subparsers(metavar='<subcommand>')
-    SubCommands.add(subparsers)
+    SubCommands.add(subparsers,VersionCommand)
     args = parser.parse_args()
 
     if hasattr(args, 'func') and args.func is not None:
