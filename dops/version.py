@@ -1,6 +1,6 @@
 VERSION_INFO = (
                 ("program","dops"),
                 ("version","dev-0.0.1"),
-                ("commit","1.gab2529e-ab2529e"),
-                ("buildTime","2017-12-26 22时56分24秒"),
+                ("commit","2.gcf9827d"),
+                ("buildTime","2017-12-26 22时58分23秒"),
 )
