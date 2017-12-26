@@ -14,13 +14,13 @@ function version() {
         release=0.$git_commit
     fi
     branch_info=($(git branch | grep '^*' | cut -d ' '  -f 2  | tr '-' " "))
-    pypi_version=$VERSION-${desc_items[-2]}
+    pypi_version=$VERSION.${desc_items[-2]}
 
     cat > dops/version.py <<EOF
 VERSION_INFO = (
                 ("program","dops"),
                 ("version","$branch_info-$VERSION"),
-                ("pypi":"$pypi_version"),
+                ("pypi","$pypi_version"),
                 ("commit","$release"),
                 ("buildTime","$(date +'%F %X')"),
 )
@@ -44,6 +44,6 @@ function pypi() {
 case $1 in
     *)
         version
-        # pypi
+        pypi
       ;;
 esac

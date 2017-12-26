@@ -13,9 +13,10 @@ if sys.version_info < (3, 5):
     sys.exit(1)
 
 
-with open(os.path.join('dops', '__init__.py'), encoding='utf-8') as f:
-    version = re.search(r"^__version__ = ['\"]([^'\"]*)['\"]", f.read(), re.M).group(1)
-
+#with open(os.path.join('dops', '__init__.py'), encoding='utf-8') as f:
+ #   version = re.search(r"^__version__ = ['\"]([^'\"]*)['\"]", f.read(), re.M).group(1)
+from dops.version import  VERSION_INFO
+version = dict(VERSION_INFO)['pypi']
 if not version:
     raise RuntimeError('Cannot find Dops version information.')
 
