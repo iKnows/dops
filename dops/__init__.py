@@ -14,8 +14,10 @@ import argparse
 import platform
 from dops.core.logger import logger
 from dops.subcmd import VersionCommand
+from dops.version import VERSION_INFO
 
-__version__ = '0.0.1'
+
+__version__ = dict(VERSION_INFO)['pypi']
 __author__ = 'ysicing <ops.ysicing@gmail.com>'
 __license__ = 'LGPLv3'
 
@@ -42,7 +44,7 @@ class SubCommands(object):
 
 def main():
 
-    logger.info('Start Dops {}'.format(__version__))
+    logger.info('Start dops {}'.format(__version__))
     logger.info('{} {} and Psutil {} detected'.format(
         platform.python_implementation(),
         platform.python_version(),
@@ -50,7 +52,7 @@ def main():
     ))
     parser = argparse.ArgumentParser()
     subparsers = parser.add_subparsers(metavar='<subcommand>')
-    SubCommands.add(subparsers,VersionCommand)
+    SubCommands.add(subparsers, VersionCommand)
     args = parser.parse_args()
 
     if hasattr(args, 'func') and args.func is not None:
