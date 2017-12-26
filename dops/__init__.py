@@ -14,7 +14,7 @@ import argparse
 import platform
 from dops.core.logger import logger
 
-__version__ = '0.0.1'
+__version__ = '0.0.1.2'
 __author__ = 'ysicing <ops.ysicing@gmail.com>'
 __license__ = 'LGPLv3'
 

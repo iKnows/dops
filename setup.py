@@ -5,7 +5,7 @@ import re
 import sys
 from io import open
 
-from setuptools import setup
+from setuptools import setup, find_packages
 
 
 if sys.version_info < (3, 5):
@@ -49,7 +49,8 @@ setup(
     license='LGPLv3',
     keywords="cli dops system",
     install_requires=get_install_requires(),
-    packages=['dops'],
+    #packages=['dops'],
+    packages=find_packages(),
     include_package_data=True,
     data_files=get_data_files(),
     entry_points={"console_scripts": ["dops=dops:main"]},

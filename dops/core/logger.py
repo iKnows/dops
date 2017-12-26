@@ -82,7 +82,7 @@ LOGGING_CFG = {
 }
 
 
-def dops_logger(env_key='LOG_FILE'):
+def dops_logger(env_key='LOG_CFG'):
 
     _logger = logging.getLogger()
 
