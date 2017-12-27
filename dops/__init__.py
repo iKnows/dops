@@ -13,7 +13,7 @@ import sys
 import argparse
 import platform
 from dops.core.logger import logger
-from dops.subcmd import VersionCommand
+from dops.subcmd import VersionCommand,GetCommand
 from dops.version import VERSION_INFO
 
 
@@ -36,10 +36,10 @@ class SubCommands(object):
         for subcmd in subcmds:
             p = subparsers.add_parser(subcmd.name, help=subcmd.help)
             for flag in subcmd.flags:
-                p.add_parser(*flag.args, **flag.kwargs)
+                p.add_argument(*flag.args, **flag.kwargs)
             p.set_defaults(func=subcmd.func, usage=subcmd.usage)
             if subcmd.subcmds:
-                cls.add(p.add_subparserrs(metavar=subcmd.metavar), *subcmd.subcmds)
+                cls.add(p.add_subparsers(metavar=subcmd.metavar), *subcmd.subcmds)
 
 
 def main():
@@ -52,7 +52,7 @@ def main():
     ))
     parser = argparse.ArgumentParser()
     subparsers = parser.add_subparsers(metavar='<subcommand>')
-    SubCommands.add(subparsers, VersionCommand)
+    SubCommands.add(subparsers, VersionCommand, GetCommand)
     args = parser.parse_args()
 
     if hasattr(args, 'func') and args.func is not None:

@@ -8,13 +8,11 @@ from io import open
 from setuptools import setup, find_packages
 
 
-if sys.version_info < (3, 5):
-    print('Dops requires at least Python 3.6 to run.')
+if sys.version_info < (3, 5) or sys.version_info[:3] < (2, 7, 13):
+    print('Dops requires at least Python 3.6 or Python 2.7.13 to run.')
     sys.exit(1)
 
 
-#with open(os.path.join('dops', '__init__.py'), encoding='utf-8') as f:
- #   version = re.search(r"^__version__ = ['\"]([^'\"]*)['\"]", f.read(), re.M).group(1)
 from dops.version import  VERSION_INFO
 version = dict(VERSION_INFO)['pypi']
 if not version:
@@ -65,6 +63,7 @@ setup(
         'Intended Audience :: System Administrators',
         'License :: OSI Approved :: GNU Lesser General Public License v3 (LGPLv3)',
         'Operating System :: OS Independent',
+        'Programming Language :: Python :: 2.7',
         'Programming Language :: Python :: 3.6',
         'Topic :: System :: Monitoring'
     ]

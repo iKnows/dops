@@ -27,4 +27,5 @@ class SubCommand(object):
         self.func = func
 
 
-from  .version import *
+from .version import *
+from .get import *
