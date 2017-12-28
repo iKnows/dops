@@ -1,22 +1,17 @@
 #!/usr/bin/env python
 
-import os
-import re
 import sys
 from io import open
-
 from setuptools import setup, find_packages
-
+from dops.version import VERSION_INFO
 
 if sys.version_info < (3, 5) or sys.version_info[:3] < (2, 7, 13):
-    print('Dops requires at least Python 3.6 or Python 2.7.13 to run.')
+    print('dops requires at least Python 3.6 or Python 2.7.13 to run.')
     sys.exit(1)
 
-
-from dops.version import  VERSION_INFO
 version = dict(VERSION_INFO)['pypi']
 if not version:
-    raise RuntimeError('Cannot find Dops version information.')
+    raise RuntimeError('Cannot find dops version information.')
 
 with open('README.rst', encoding='utf-8') as f:
     long_description = f.read()
@@ -40,7 +35,7 @@ def get_install_requires():
 setup(
     name='dops',
     version=version,
-    description="Dops tool",
+    description="devops cli tool",
     long_description=long_description,
     author='ysicing',
     author_email='ops.ysicing@gmail.com',
@@ -48,7 +43,6 @@ setup(
     license='LGPLv3',
     keywords="cli dops system",
     install_requires=get_install_requires(),
-    #packages=['dops'],
     packages=find_packages(),
     include_package_data=True,
     data_files=get_data_files(),
@@ -63,7 +57,6 @@ setup(
         'Intended Audience :: System Administrators',
         'License :: OSI Approved :: GNU Lesser General Public License v3 (LGPLv3)',
         'Operating System :: OS Independent',
-        'Programming Language :: Python :: 2.7',
         'Programming Language :: Python :: 3.6',
         'Topic :: System :: Monitoring'
     ]
