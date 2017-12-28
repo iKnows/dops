@@ -43,8 +43,11 @@ LOGGING_CFG = {
     "handlers": {
         "file": {
             "level": "DEBUG",
-            "class": "logging.handlers.RotatingFileHandler",
+            "class": "logging.handlers.TimedRotatingFileHandler",
             "formatter": "standard",
+            "when": "midnight",
+            "interval":1,
+            "backupCount":30,
             "filename": LOG_FILE
         },
         "console": {
