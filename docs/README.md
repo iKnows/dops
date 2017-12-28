@@ -6,3 +6,5 @@
 
 - version
 - get
+
+dops get system cpu --full -type dict/table

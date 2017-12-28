@@ -8,11 +8,11 @@
 @time: 2017/12/27 23:18
 """
 
-from . import  BaseFlag, SubCommand
+from . import BaseFlag, SubCommand
 
 
 def _get_test(args):
-    return 'test {}/{}'.format(args.name, args.full)
+    return 'test {}/{}/{}'.format(args.name, args.full, args.type)
 
 
 GetCommand = SubCommand(
@@ -22,8 +22,9 @@ GetCommand = SubCommand(
         SubCommand(
             name="system", usage="get system info",
             flags=[
-                BaseFlag('name', metavar="services_name", nargs='?'),
+                BaseFlag('name', metavar="sn", nargs='?'),
                 BaseFlag('--full', action='store_true'),
+                BaseFlag('-t', '--type', choices=('dict', 'table', 'json')),
             ],
             func=_get_test
         ),
