@@ -10,7 +10,7 @@ Dops tools on your system
     :target: https://github.com/ysicing/dops/
     :alt: Github stars
 
-.. image:: https://img.shields.io/travis/ysicing/dops/master.svg?maxAge=3600&label=Linux%20/%20macOS
+.. image:: https://img.shields.io/travis/ysicing/dops/dev.svg?maxAge=3600&label=Linux%20/%20macOS
     :target: https://travis-ci.org/ysicing/dops
     :alt: Linux tests (Travis)
 
