@@ -1,3 +1,4 @@
+function release(){
     gitdesc=$(git describe --tag | sed  's/^v//')
     desc_items=($(echo $gitdesc | tr '-'  ' ' ))
     desc_len=${#desc_items[@]}
@@ -20,3 +21,11 @@ VERSION_INFO = (
                 ("buildTime","$(date +'%F %X')"),
 )
 EOF
+
+}
+
+case $1 in
+    *)
+    release
+    ;;
+esac
