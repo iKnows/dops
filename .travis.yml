@@ -1,5 +1,7 @@
 language: python
-sudo: enabled
+sudo: required
+dist: trusty
+group: deprecated-2017Q4
 python:
 - '3.6'
 install:
