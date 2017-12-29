@@ -5,12 +5,12 @@ group: deprecated-2017Q4
 python:
 - '3.6'
 install:
-- pip install -U pip setuptools
-- pip install -r requirements.txt
-- pip install coveralls
+- sudo pip3 install -U pip setuptools
+- sudo pip3 install -r requirements.txt
+- sudo pip3 install coveralls
 script:
 - ./version.sh
-- python setup.py install
+- sudo python3 setup.py install
 - sudo coverage run --source=dops unitest.py
 after_success:
 - coveralls
