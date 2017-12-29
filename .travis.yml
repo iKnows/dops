@@ -1,0 +1,13 @@
+language: python
+python:
+- '3.6'
+install:
+- pip install -U pip setuptools
+- pip install -r requirements.txt
+- pip install coveralls
+script:
+- bash version.sh
+- python setup.py install
+- coverage run --source=dops unitest.py
+after_success:
+- coveralls

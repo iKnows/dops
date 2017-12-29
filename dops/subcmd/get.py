@@ -22,7 +22,7 @@ GetCommand = SubCommand(
         SubCommand(
             name="system", usage="get system info",
             flags=[
-                BaseFlag('name', metavar="sn", nargs='?'),
+                BaseFlag('name', metavar="name(eg:cpu,mem,disk,network,..)", nargs='?'),
                 BaseFlag('--full', action='store_true'),
                 BaseFlag('-t', '--type', choices=('dict', 'table', 'json')),
             ],
