@@ -10,6 +10,7 @@
 
 
 import sys
+import locale
 import argparse
 import platform
 from dops.core.logger import logger
@@ -21,6 +22,12 @@ __version__ = dict(VERSION_INFO)['pypi']
 __author__ = 'ysicing <ops.ysicing@gmail.com>'
 __license__ = 'LGPLv3'
 
+
+# Check locale
+try:
+    locale.setlocale(locale.LC_ALL, '')
+except locale.Error:
+    print("Warning: Unable to set locale. Expect encoding problems.")
 
 try:
     from psutil import __version__ as psutil_version
