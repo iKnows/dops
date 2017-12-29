@@ -10,7 +10,6 @@ install:
 - sudo pip install coveralls
 script:
 - ./version.sh
-- sudo python setup.py install
 - sudo coverage run --source=dops unitest.py
 after_success:
 - coveralls
