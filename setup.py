@@ -5,8 +5,8 @@ from io import open
 from setuptools import setup, find_packages
 from dops.version import VERSION_INFO
 
-if sys.version_info < (3, 5) or sys.version_info[:3] < (2, 7, 13):
-    print('dops requires at least Python 3.6 or Python 2.7.13 to run.')
+if sys.version_info < (3, 6):
+    print('dops requires at least Python 3.6 to run.')
     sys.exit(1)
 
 version = dict(VERSION_INFO)['pypi']
