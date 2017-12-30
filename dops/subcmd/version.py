@@ -10,12 +10,13 @@
 
 from . import SubCommand
 
+
 def _show_version(args):
     try:
         from dops.version import VERSION_INFO
         for name, value in VERSION_INFO:
-            print("     {0:10s} :\t{1}".format(name,value))
-    except ImportError as  e:
+            print("     {0:10s} :\t{1}".format(name, value))
+    except ImportError as e:
         print("get version info failed")
 
 

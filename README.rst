@@ -14,6 +14,9 @@ Dops tools on your system
     :target: https://travis-ci.org/ysicing/dops
     :alt: Linux tests (Travis)
 
+.. image:: https://coveralls.io/repos/github/ysicing/dops/badge.svg?branch=dev
+    :target: https://coveralls.io/github/ysicing/dops?branch=dev
+
 
 Summary
 =======
