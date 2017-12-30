@@ -9,11 +9,14 @@
 """
 
 from . import BaseFlag, SubCommand
+from dops.plugins.node import NodeInfo
+from dops.core.logger import logger
 
 
-def _get_test(args):
-    return 'test {}/{}/{}'.format(args.name, args.full, args.type)
-
+def _get_system(args):
+    n = NodeInfo()
+    logger.info("start get {} --full={} -t={}".format(args.name, args.full, args.t if None else "json"))
+    return n.get_system(args)
 
 GetCommand = SubCommand(
     name="get", help="get the resource", metavar="<resource>",
@@ -22,11 +25,11 @@ GetCommand = SubCommand(
         SubCommand(
             name="system", usage="get system info",
             flags=[
-                BaseFlag('name', metavar="name(eg:cpu,mem,disk,network,..)", nargs='?'),
-                BaseFlag('--full', action='store_true'),
-                BaseFlag('-t', '--type', choices=('dict', 'table', 'json')),
+                BaseFlag('name', metavar="name", help="eg:cpu,mem,disk", nargs='?'),
+                BaseFlag('--full', action='store_true', help="all info"),
+                BaseFlag('-t', choices=('dict', 'table', 'json'), help="default json"),
             ],
-            func=_get_test
+            func=_get_system
         ),
     ]
 )
