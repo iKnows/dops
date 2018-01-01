@@ -38,9 +38,7 @@ Installation
 
 Several method to test/install Dops on your system. Choose your weapon !
 
-```
-pip3 install dops
-```
+`pip3 install dops`
 
 License
 =======

@@ -29,7 +29,7 @@ GetCommand = SubCommand(
             flags=[
                 BaseFlag('name', metavar="name", help="eg:cpu,mem,disk", nargs='?'),
                 BaseFlag('--full', action='store_true', help="all info"),
-                BaseFlag('-t', choices=('dict', 'table', 'json'), help="default json"),
+                BaseFlag('-t', choices=('table', 'json'), help="default json"),
             ],
             func=_get_system
         ),

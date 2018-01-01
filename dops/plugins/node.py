@@ -31,16 +31,27 @@ class SystemInfo(object):
         uptime_simple = int(time.time() - psutil.boot_time())
         if boot_time:
             boot_time = datetime.datetime.fromtimestamp(psutil.boot_time()).strftime("%Y-%m-%d %H:%M:%S")
-            return "{},up {}s".format(boot_time, uptime_simple)
+            m, s = divmod(uptime_simple, 60)
+            h, m = divmod(m, 60)
+            d, h = divmod(h, 24)
+            if uptime_simple <= 86400:
+                return "{},up {}:{}".format(boot_time, h, m)
+            else:
+                return "{}, up {:>2} days {:>2}:{:>2}".format(boot_time, d, h, m)
         return "{}".format(uptime_simple)
+
+    def _get_cpu_num(self):
+        return "{}/{}".format(psutil.cpu_count(),psutil.cpu_count(logical=True))
 
     def get_sysinfo(self):
         sysinfo = {
+            'os': platform.platform(),
             'uptime': self._uptime(boot_time=True),
             'hostname': socket.gethostname(),
-            'os': platform.platform(),
+
             'load_avg': os.getloadavg(),
-            'num_cpus': psutil.cpu_count()
+            'cpus[p/l]': self._get_cpu_num(),
+            'memory': "{} M".format(self.get_memory()['total']/1024/1024)
         }
         return sysinfo
 
@@ -275,22 +286,19 @@ s = SystemInfo()
 
 class NodeInfo(object):
 
-    def _output_fmt(self, func, t="json", nsp=None):
+    def _output_fmt(self, func, t=None, nsp=None):
         _info_output_fmt = '{0:>10s}:\t{1}'
         if func == "nsp":
             return _info_output_fmt.format(nsp if None else "None", "not support now.")
         if t == "json":
             return json.dumps(func)
-        elif t == "table":
-            # Todo
-            return _info_output_fmt.format("test", "testb")
         else:
-            # Todo
-            return _info_output_fmt.format("test", "testb")
+            for (k, v) in func.items():
+                print(_info_output_fmt.format(k, v))
 
     def get_system(self, args):
         logger.info("end get {} --full={} -t={}".format(args.name, args.full, args.t if None else "json"))
-        if args.full:
+        if args.full or args.name is None:
             return self._output_fmt(s.get_sysinfo(), args.t)
         elif args.name == "cpu":
             return self._output_fmt(s.get_cpu(), args.t)
