@@ -15,6 +15,8 @@ from dops.core.logger import logger
 
 def _get_system(args):
     n = NodeInfo()
+    if args.t is None:
+        args.t = "json"
     logger.info("start get {} --full={} -t={}".format(args.name, args.full, args.t if None else "json"))
     return n.get_system(args)
 

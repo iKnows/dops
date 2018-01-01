@@ -295,7 +295,7 @@ class NodeInfo(object):
         elif args.name == "cpu":
             return self._output_fmt(s.get_cpu(), args.t)
         elif args.name == "mem":
-            return self._output_fmt(s.get_mem(), args.t)
+            return self._output_fmt(s.get_memory(), args.t)
         elif args.name == "disk":
             return self._output_fmt(s.get_disks(), args.t)
         else:
