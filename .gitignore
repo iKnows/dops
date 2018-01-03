@@ -108,3 +108,4 @@ dops/version.py
 Dockerfile.pypi
 release.sh
 entrypoint.sh
+!/dops/plugins/instance/
