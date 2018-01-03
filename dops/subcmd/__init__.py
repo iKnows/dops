@@ -29,3 +29,4 @@ class SubCommand(object):
 
 from .version import *
 from .get import *
+from .install import *

@@ -14,7 +14,7 @@ import locale
 import argparse
 import platform
 from dops.core.logger import logger
-from dops.subcmd import VersionCommand,GetCommand
+from dops.subcmd import VersionCommand, GetCommand, InstallCommand
 from dops.version import VERSION_INFO
 
 
@@ -59,7 +59,7 @@ def main():
     ))
     parser = argparse.ArgumentParser()
     subparsers = parser.add_subparsers(metavar='<subcommand>')
-    SubCommands.add(subparsers, VersionCommand, GetCommand)
+    SubCommands.add(subparsers, VersionCommand, GetCommand, InstallCommand)
     args = parser.parse_args()
 
     if hasattr(args, 'func') and args.func is not None:
