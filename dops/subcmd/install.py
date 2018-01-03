@@ -9,7 +9,7 @@
 """
 
 from . import BaseFlag, SubCommand
-from  dops.plugins.instance import GeneralInstall
+from dops.plugins.instance import GeneralInstall
 
 
 def _create_instance(args):
