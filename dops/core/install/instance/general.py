@@ -8,7 +8,7 @@
 @time: 2018/1/3 23:56
 """
 
-from .base import BaseInstall
+from dops.core.install.base import BaseInstall
 
 
 class GeneralInstall(BaseInstall):

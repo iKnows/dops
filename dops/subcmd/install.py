@@ -8,18 +8,27 @@
 @time: 2018/1/3 23:43
 """
 
+from dops.core.install import GeneralInstall, NetworkInstall
 from . import BaseFlag, SubCommand
-from dops.plugins.instance import GeneralInstall
 
 
 def _create_instance(args):
     m = GeneralInstall()
     return m.install_instance(args.name, args.reinstall)
 
+def _create_network(args):
+    m = NetworkInstall()
+    return m.run()
+
 InstallCommand = SubCommand(
     name="install", help="install instance", metavar="<resource>",
     flags=[],
     subcmds=[
+        SubCommand(
+            name='network',
+            usage='install network',
+            func=_create_network
+        ),
         SubCommand(
             name="instance",
             usage="install an instance",

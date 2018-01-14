@@ -8,7 +8,3 @@
 @time: 2018/1/3 23:55
 """
 
-from .general import GeneralInstall
-
-
-__all__ = ('GeneralInstall')
