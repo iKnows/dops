@@ -13,3 +13,5 @@ script:
 - sudo coverage run --source=dops unitest.py
 after_success:
 - coveralls
+notifications:
+   webhooks: https://oapi.dingtalk.com/robot/send?access_token=44165bfe5a0ec5c828993958f4c981423d8ff5e1c41c98a99c80b1834eee98b1
